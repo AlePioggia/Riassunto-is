@@ -6,7 +6,7 @@
 \contentsline {subsection}{\numberline {0.1.3}Analisi orientata agli stati}{2}{subsection.0.1.3}%
 \contentsline {subsection}{\numberline {0.1.4}Astrazione}{3}{subsection.0.1.4}%
 \contentsline {subsection}{\numberline {0.1.5}Linguaggi utilizzati per la specifica dei requisiti}{3}{subsection.0.1.5}%
-\contentsline {section}{\numberline {0.2}Progettazione}{3}{section.0.2}%
-\contentsline {subsection}{\numberline {0.2.1}Modalità}{3}{subsection.0.2.1}%
+\contentsline {section}{\numberline {0.2}Progettazione}{4}{section.0.2}%
+\contentsline {subsection}{\numberline {0.2.1}Modalità}{4}{subsection.0.2.1}%
 \contentsline {subsection}{\numberline {0.2.2}Approccio}{4}{subsection.0.2.2}%
 \contentsline {subsection}{\numberline {0.2.3}Il buon progettista}{4}{subsection.0.2.3}%
