@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.11.6)  15 JAN 2022 17:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.14)  16 JAN 2022 09:54
 entering extended mode
 **./main.tex
 (main.tex
@@ -61,7 +61,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 Package: alltt 2021/01/29 v2.0g defines alltt environment
 )
 (C:\Users\alexp\AppData\Local\Programs\MiKTeX\tex/latex/fancyvrb\fancyvrb.sty
-Package: fancyvrb 2021/10/15 v3.9 verbatim text (tvz,hv)
+Package: fancyvrb 2021/08/12 v3.8 verbatim text (tvz,hv)
 
 (C:\Users\alexp\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
@@ -379,20 +379,18 @@ Package cleveref Info: `amsthm' support loaded on input line 3026.
 
 Excluding comment 'comment')
 (C:\Users\alexp\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.sty
-Package: microtype 2021/10/31 v3.0 Micro-typographical refinements (RS)
+Package: microtype 2021/03/14 v2.8c Micro-typographical refinements (RS)
 \MT@toks=\toks32
 \MT@count=\count289
-\MT@tempbox=\box55
-\MT@leftmarginkern=\dimen155
-\MT@rightmarginkern=\dimen156
-LaTeX Info: Redefining \textls on input line 1114.
-\MT@outer@kern=\dimen157
-LaTeX Info: Redefining \textmicrotypecontext on input line 1700.
+LaTeX Info: Redefining \textls on input line 790.
+\MT@outer@kern=\dimen155
+LaTeX Info: Redefining \textmicrotypecontext on input line 1374.
 \MT@listname@count=\count290
 
 (C:\Users\alexp\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype-pdf
 tex.def
-File: microtype-pdftex.def 2021/10/31 v3.0 Definitions specific to pdftex (RS)
+File: microtype-pdftex.def 2021/03/14 v2.8c Definitions specific to pdftex (RS)
+
 LaTeX Info: Redefining \lsstyle on input line 915.
 LaTeX Info: Redefining \lslig on input line 915.
 \MT@outer@space=\skip56
@@ -400,7 +398,7 @@ LaTeX Info: Redefining \lslig on input line 915.
 Package microtype Info: Loading configuration file microtype.cfg.
 
 (C:\Users\alexp\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.cfg
-File: microtype.cfg 2021/10/31 v3.0 microtype main configuration file (RS)
+File: microtype.cfg 2021/03/14 v2.8c microtype main configuration file (RS)
 ))
 (C:\Users\alexp\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
 Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
@@ -444,7 +442,7 @@ Writing index file main.idx
 tex.def
 File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count291
-\l__pdf_internal_box=\box56
+\l__pdf_internal_box=\box55
 ) (main.aux)
 \openout1 = `main.aux'.
 
@@ -471,13 +469,13 @@ LaTeX Font Info:    ... okay on input line 46.
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count292
-\scratchdimen=\dimen158
-\scratchbox=\box57
+\scratchdimen=\dimen156
+\scratchbox=\box56
 \nofMPsegments=\count293
 \nofMParguments=\count294
 \everyMPshowfont=\toks33
 \MPscratchCnt=\count295
-\MPscratchDim=\dimen159
+\MPscratchDim=\dimen157
 \MPnumerator=\count296
 \makeMPintoPDFobject=\count297
 \everyMPtoPDFconversion=\toks34
@@ -521,10 +519,6 @@ LaTeX Info: Redefining \nameref on input line 46.
 LaTeX Info: Redefining \it@ocap on input line 46.
 LaTeX Info: Redefining \it@ccap on input line 46.
 LaTeX Info: Redefining \microtypecontext on input line 46.
-Package microtype Info: Applying patch `item' on input line 46.
-Package microtype Info: Applying patch `toc' on input line 46.
-Package microtype Info: Applying patch `eqnum' on input line 46.
-Package microtype Info: Applying patch `footnote' on input line 46.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -540,9 +534,6 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Overfull \vbox (2.51065pt too high) detected at line 51
- []
-
 [1
 
 {C:/Users/alexp/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] (main.toc
@@ -604,32 +595,41 @@ been already used, duplicate ignored
 l.68 	\newpage
                [1
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 71--73
+] [2]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 8
+4.
 
- []
-
-[2] (main.aux
+(C:\Users\alexp\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [3]
+[4] (main.aux
 Package cleveref Info: loaded `italian' language definitions on input line 21.
 Package cleveref Info: loaded `italian' language definitions on input line 22.
 )
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5468903F594EB736E0231A527F0409BB;156.
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 61C8BBA7C3F0898C1097C9E328780C78;1505
+(rerunfilecheck)             After:  55202D991D913B876AF1837EFEF13B6E;1668.
  ) 
 Here is how much of TeX's memory you used:
- 14700 strings out of 478927
- 238979 string characters out of 2852535
- 595834 words of memory out of 3000000
- 32287 multiletter control sequences out of 15000+600000
- 435939 words of font info for 71 fonts, out of 8000000 for 9000
+ 14672 strings out of 478927
+ 238659 string characters out of 2852534
+ 595473 words of memory out of 3000000
+ 32222 multiletter control sequences out of 15000+600000
+ 443301 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,5n,66p,1003b,556s stack positions out of 5000i,500n,10000p,200000b,80000s
-{C:/Users/alexp/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}<C
-:/Users/alexp/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C
-:/Users/alexp/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
-Output written on main.pdf (3 pages, 58884 bytes).
+ 60i,5n,66p,464b,556s stack positions out of 5000i,500n,10000p,200000b,80000s
+{C:/Users/alexp/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{
+C:/Users/alexp/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}<C:/U
+sers/alexp/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/U
+sers/alexp/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
+Output written on main.pdf (5 pages, 76907 bytes).
 PDF statistics:
- 36 PDF objects out of 1000 (max. 8388607)
- 5 named destinations out of 1000 (max. 500000)
- 18441 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 92 PDF objects out of 1000 (max. 8388607)
+ 16 named destinations out of 1000 (max. 500000)
+ 24649 words of extra memory for PDF output out of 24883 (max. 10000000)
 
