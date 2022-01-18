@@ -67,18 +67,17 @@
 	
 	\newpage
 	
-	\section{Analisi dei requisiti}
+	\chapter{Analisi dei requisiti}
 	L'analisi dei requisiti è la fase che permette, attraverso la modellazione della realtà, di redigere la specifiche dei requisiti, documento che rappresenterà l'input per le successive fasi di progettazione. Per rendere possibile la creazione un coadiuvato è necessario, da parte dell'analista, intervistare il produttore, cercando di assimilare al meglio tutte le informazioni riguardanti il dominio applicativo. \\
 	In questa fase è necessario fare in modo che il documento sia chiaro, non ambiguo, accessibile e privo di contraddizioni.\\
 	L'analisi è incrementale e deve comunicare gli aspetti statici, dinamici e funzionali del progetto software.
-	\subsection{Analisi orientata agli oggetti}
+	\section{Analisi orientata agli oggetti}
 	In questa tipologia di analisi vengono curati principalmente gli aspetti statici, ovvero vengono definiti gli oggetti e le relazioni presenti fra essi. Definire gli oggetti significa individuare tutte le informazioni e proprietà ad essi connesse, esse tendono a rimanere invariate nel tempo, per questo viene definito un approccio \textbf{statico}.
-	\subsection{Analisi funzionale}
+	\section{Analisi funzionale}
 	L'analisi funzionale si pone il problema di definire le specifiche prendendo come riferimento le funzioni, ovvero viene studiata solo ed esclusivamente la relazione presente fra dati in ingresso e dati in uscita. Vengono presi in considerazione i flussi informativi, che verranno poi modificati da processi.
-	\subsection{Analisi orientata agli stati}
+	\section{Analisi orientata agli stati}
 	L'analisi orientata agli stati analizza i vari stati evolutivi del prodotto, in funzione di ciò, vengono analizzati i comportamenti e successivamente redatta la documentazione delle specifiche dei requisiti.
-	\newpage
-	\subsection{Astrazione}
+	\section{Astrazione}
 	I meccanismi di astrazione utilizzati sono:
 	\begin{itemize}
 		\item classificazione
@@ -86,7 +85,7 @@
 		\item aggregazione (part-of)
 		\item associazione
 	\end{itemize}
-	\subsection{Linguaggi utilizzati per la specifica dei requisiti}
+	\section{Linguaggi utilizzati per la specifica dei requisiti}
 	\begin{itemize}
 		\item informale (linguaggio naturale, molto contradditorio e poco chiaro, sconsigliato)
 		\item semiformale (utilizzo di diagrammi secondo un preciso standard, che però è semplice ed intuitivo (e/r, dfd))
@@ -94,18 +93,75 @@
 	\end{itemize}
 	Una volta definito il tipo di linguaggio da utilizzare è necessario effettuare una distinzione fra formalismi dichiarativi e operazionali. I primi definiscono il problema indicando le proprietà che esso deve avere, i secondi ne descrivono il comportamento, nella maggior parte dei casi attraverso un modello. I formalismi operazionali sono i più indicati in questo contesto, in quanto più comprensibili e modellabili.
 	\newpage
-	\section{Progettazione}
+	\chapter{Progettazione}
 	Se la fase di analisi vuole sincerarsi sul "che cosa" sviluppare, nella parte di progettazione ci si chiede "come" svilupparlo, dunque si ha una sorta di ponte fra analisi e codifica.
-	\subsection{Modalità}
+	\section{Modalità}
 	Nella progettazione si suddivide il problema iniziale in più sottoproblemi, il più possibile indipendenti fra loro, questo dà la possibilità di fare gestire il lavoro a più team, anche in parallelo. Una fase di progettazione ben realizzata consente un notevole risparmio di risorse, dal momento che un eventuale errore in fase di produzione o peggio, durante la manutenzione comporta un costo molto più elevato per l'azienda.
-	\subsection{Approccio}
+	\section{Approccio}
 	L'approccio varia in base alla strategia adottata, ne conosciamo due:
 	\begin{itemize}
 		\item generale
 		\item specifico
 	\end{itemize}
 	Il primo permette di mantenere una buona elasticità, può essere modellato anche nelle fasi successive. Il secondo invece è rigido, non contempla modifiche nelle fasi successive, questo semplifica il passaggio dalla progettazione alla codifica.
-	\subsection{Il buon progettista}
+	\section{Il buon progettista}
 	Il buon progettista è colui che ha una buona conoscenza di tutto ciò che riguarda lo sviluppo software, sa anticipare i cambiamenti ed ha un buon grado di esperienza. Inoltre, è colui che si pone come obiettivi della progettazione l'affidabilità, la modificabilità, la comprensibilità e la riusabilità del software.	
-	
+	\newpage
+	\chapter{Paradigma ad oggetti}
+	La programmazione OO offre un nuovo e potente modello per scrivere programmi, gli oggetti sono scatole nere che mandano e ricevono messaggi. Questo sistema velocizza l'approccio software e migliora la riusabilità, la modificabilità e il mantenimento, richiedendo però un maggiore sforzo in fase di progettazione. I concetti fondamentali sono : oggetto, astrazione, classe, incapsulamento, ereditarietà, polimorfismo, late-binding e delegazione.
+	\section{Oggetto}
+	Un oggetto è una entità del dominio applicativo caratterizzata da un identificatore (unico), delle proprietà (attributi) e da un comportamento (definito da un insieme di operazioni). Gli oggetti possono essere aggregati fra loro per poter poi formare oggetti complessi.
+	\section{Operazione}
+	Ogni operazione è caratterizzata da un nome, dai parametri che prende come argomento e dal tipo di ritorno (signature). L'insieme di tutte le signature delle operazioni di un oggetto sono dette interfaccia dell'oggetto.
+	\section{Classe}
+	Una classe è la realizzazione di un tipo di dati astratto (tipo di dati astratto : insieme di oggetti simili, caratterizzati da dati e da un insieme di operazioni associate agli oggetti), cioè una implementazione per i metodi ad esso associati.
+	\section{Incapsulamento}
+	L'incapsulamento permette di \textbf{proteggere} dati e implementazione delle operazioni di un oggetto, attraverso una interfaccia pubblica. L'unico modo per modificare lo stato dell'oggetto (o ottenere informazioni riguardanti gli attributi) è attraverso l'utilizzo dei metodi presenti nell'interfaccia. Questo meccanismo favorisce la diminuzione della quantità di errori commessi (es:modifica di uno stato manualmente), una maggiore sicurezza, l'utilizzo (per utilizzare una classe è sufficiente conoscerne l'interfaccia pubblica) ed infine la modifica dell'implementazione di un metodo di una classe (non si ripercuote sull'applicazione).	
+	\section{Metodi}
+	Un metodo cattura l'implementazione di una operazione, possono essere classificati in: costruttori, distruttori, accessori e trasformatori. Un metodo può essere o privato, o pubblico o protetto.
+	\section{Ereditarietà}
+	Il meccanismo di ereditarietà permette di basare la definizione dell'implementazione di una classe su quella di altre classi. Una classe può \textbf{ereditare} da una superclasse ed essere \textbf{estesa} da una sottoclasse. Le sottoclassi ereditano attributi e metodi della superclasse.\\
+	In certi contesti è ammessa l'ereditarietà multipla, fenomeno per il quale una sottoclasse eredita \textbf{contemporaneamente} da due superclassi.
+	\section{Polimorfismo}
+	Per polimorfismo si intende la capacità di assumere forme molteplici, si verifica quando:
+	\begin{itemize}
+		\item in una classe posso definire due metodi con stessa intestazione, a patto che abbiano una diversa signature (parametri in ingresso)
+		\item posso ridefinire un metodo attraverso il meccanismo di override
+	\end{itemize}
+	\section{Late binding}
+	Il late binding, o istanziamento dinamico, permette a ciascun oggetto di rispondere a uno stesso messaggio in modo appropriato a seconda della classe da cui deriva.
+	\section{Delegazione}
+	Si parla di delegazione quando un oggetto A contiene un riferimento ad un oggetto B, in questo modo A può delegare delle funzioni alla classe a cui appartiene B. Questo è il meccanismo fondamentale per quanto riguarda l'implementazione dell'associazione fra classi.
+	\chapter{Ingegneria del software}
+	L'ingegneria del software è la disciplina che, attraverso un approccio sistematico (tecnico e preciso), si pone come obiettivo quello di gestire l'operabilità, la manutenzione e l'eventuale ritiro dal commercio del software. Questa disciplina, oltre all'aspetto tecnico, comprende un aspetto manageriale, il quale si occupa della gestione dei flussi, dei tempi e delle risorse dell'azienda.
+	\section{Qualità del software}
+	Un software che funzioni non è sufficiente, è necessario che sia di qualità, esse possono essere:
+	\begin{itemize}
+		\item interne (visibili solamente dagli sviluppatori)
+		\item esterne (visibili dall'utente finale)
+		\item di prodotto (guardano la qualità del prodotto)
+		\item di processo (guardano la qualità del processo produttivo)
+	\end{itemize}
+	\subsection{Qualità esterne, di prodotto e di processo}
+	Robustezza (si comporta bene anche su aspetti non menzionati nelle specifiche di progetto)
+	\subsection{Qualità esterne e di prodotto}
+	Correttezza (funziona?), affidabilità (un software è affidabile se posso dipendere da esso), Efficienza (tempi e prestazioni), Facilità d'uso, portabilità e interoperabilità (utilizzo di software unito ad altri, ad esempio word e excel).
+	\subsection{Qualità interne, di prodotto e di processo}
+	Verificabilità (il sw è certificabile, si osserva la correttezza, performance, ecc.)
+	\subsection{Qualità interne e di prodotto}
+	Riusabilità e facilità di manutenzione (aperto a modifiche correttive, perfettive ed adattive).
+	\subsection{Qualità esterne e di processo}
+	Produttività, tempestività e trasparenza.	
+	\section{Software design}
+	Il sw design rappresenta il processo che trasforma le specifiche utente in un insieme di specifiche utilizzabili dai programmatori, il risultato del processo di design è l'architettura software.
+	\subsection{Principi di progettazione (good practices)}
+	\begin{itemize}
+		\item \textbf{Formalità }(suggerisce l'uso di formalismi, ad esempio uml)
+		\item \textbf{Anticipazione dei cambiamenti} (un sw robusto deve essere aperto ai cambiamenti, che siano noti o meno a priori. Le modifiche possono riguardare : hw, sw, algoritmi e dominio di applicazione)
+		\item \textbf{Separazione degli argomenti} (suggerisce di spezzare il problema in sottoproblemi, in funzione del: tempo, livello di qualità (approccio incrementale), vista (in fase di analisi curare aspetti statici, dinamici e funzionali), livello di astrazione e dimensione )
+		\item \textbf{Modularità} (divisione del sistema in moduli, un modulo è un componente di base di un sistema software, che permette di scomporre un sistema complesso in più componenti semplici. Tutti i servizi strettamente connessi devono appartenere allo stesso modulo e inoltre devono essere indipendenti fra loro, i programmatori devono poter operare su un modulo con una conoscenza minima del contenuto degli altri. Un modulo inoltre deve definire una interfaccia, la quale mostra le informazioni relative ad esso ma nasconde l'implementazione, si tratta di information hiding, dunque è suff. indicare una linea guida su come utilizzare i servizi. Essi interagiscono fra loro, attraverso le dipendenze [uses], composizione [part-of] e in base al tempo.)
+		\item \textbf{Astrazione}
+		\item \textbf{Generalità} (Ogni volta che occorre risolvere un problema, si cerca di capire quale è il problema più generale che vi si nasconde dietro.)
+		
+	\end{itemize}
 \end{document}
