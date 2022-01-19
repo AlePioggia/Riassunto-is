@@ -162,6 +162,111 @@
 		\item \textbf{Modularità} (divisione del sistema in moduli, un modulo è un componente di base di un sistema software, che permette di scomporre un sistema complesso in più componenti semplici. Tutti i servizi strettamente connessi devono appartenere allo stesso modulo e inoltre devono essere indipendenti fra loro, i programmatori devono poter operare su un modulo con una conoscenza minima del contenuto degli altri. Un modulo inoltre deve definire una interfaccia, la quale mostra le informazioni relative ad esso ma nasconde l'implementazione, si tratta di information hiding, dunque è suff. indicare una linea guida su come utilizzare i servizi. Essi interagiscono fra loro, attraverso le dipendenze [uses], composizione [part-of] e in base al tempo.)
 		\item \textbf{Astrazione}
 		\item \textbf{Generalità} (Ogni volta che occorre risolvere un problema, si cerca di capire quale è il problema più generale che vi si nasconde dietro.)
-		
 	\end{itemize}
+	\section{Misurazione}
+	La misurazione si occupa di prevedere e stimare tempi di consegna e qualità di lavorazione del software. Non è una misurazione esatta, in quanto è molto difficile quantificare, si tratta di una stima, eseguibile attraverso strumenti di diverso genere.
+	\subsection{Fasi in cui è opportuno eseguire la stima}
+	Scopi:\\
+	La stima può avvenire in diversi stadi di lavorazione, può essere utile per prevedere le caratteristiche che avrà il software in una fase successiva alla valutazione (utile per definire azioni correttive) oppure per stimare le caratteristiche nello stadio attuale, utile per capire il costo adeguato di un software. \\
+	Fasi \\
+	Bisogna inoltre definire in quale momento effettuare la misurazione, essa può avvenire in:
+	\begin{itemize}
+		\item fase di progettazione (serve a prevedere la manutenibilità e prevenire problemi)
+		\item fase di collaudo/test (eseguire un confronto con le specifiche)
+		\item fase dopo il rilascio in esercizio (serve a misurare l'impatto del software, in modo da assegnarli eventualmente un costo adeguato)
+	\end{itemize}
+	\newpage
+	\subsection{Costi}
+	Prima di stimare i costi occorre effettuare una classificazione, dividendo le fonti di costo (costi per le attività generatrici) dai fattori di costo (hanno incidenza sul costo). \\ \\
+	\textbf{Fonti di costo}
+	\begin{itemize}
+		\item Costo delle risorse per lo sviluppo del sw (costo diretto)
+		\begin{itemize}
+			\item personale tecnico
+			\item personale di supporto (bidelli, donne delle pulizie, manutentori)
+			\item risorse informatiche
+			\item materiali di consumo
+			\item costi generali della struttura
+		\end{itemize}
+		\item Costo per l'indisponibilità di un'applicazione (costo indiretto)
+	\end{itemize}
+	\textbf{Fattori di costo}
+	\begin{itemize}
+		\item Lines of code (LOC)
+		\item bravura del team (un team bravo, anche se lo pago molto, mi fa risparmiare sul processo produttivo)
+		\item complessità del programma
+		\item stabilità dei requisiti (se cambiano idea spesso è difficile costruire un sw solido e in poco tempo)
+		\item caratteristiche dell'ambiente di sviluppo
+	\end{itemize}
+	\subsection{Dimensioni del software}
+	Le dimensioni del software si possono stimare in funzione di due tipi di metriche:
+	\begin{itemize}
+		\item dimensionali (si basano sul numero di istruzioni del programma)
+		\item funzionali (si basano sulle caratteristiche funzionali del programma)
+	\end{itemize}
+	\subsection{Il metodo function points}
+	Il metodo FP è empirico (basato sull'esperienza) e misura la dimensione di un sw in termini delle funzionalità offerte all'utente. Può essere utilizzato a partire dalla prima fase dello sviluppo per poi ripetere la misura nel caso le specifiche siano cambiate, è inoltre indipendente dall'ambiente tecnologico in cui si sviluppa il progetto. \\ \\
+	Può essere utilizzato per:
+	\begin{itemize}
+		\item capire che beneficio un sw porterà alla mia organizzazione
+		\item controllare che non si ladri alla vendita di un sw, c'è un fattore di proporzionalità (non posso vendere un sw di hello kitty a 3 milioni di euro)
+	\end{itemize}
+	\subsection{Conteggio dei function points}
+	In ordine:
+	\begin{itemize}
+		\item individuazione del tipo di conteggio
+		\begin{itemize}
+			\item sviluppo software o manutenzione?
+		\end{itemize}
+		\item individuazione dei confini
+		\begin{itemize}
+			\item tutto il sistema o una sola componente?
+		\end{itemize}
+		\item conteggio dei FP non pesati
+		\begin{itemize}
+			\item funzioni di tipo dati
+			\begin{itemize}
+				\item file interni logici (informazioni tenute all'interno dei confini dell'applicazione)
+				\item file esterni di interfaccia (dati a disposizione dell'applicazione ma mantenuti dentro i confini di un'altra applicazione)
+			\end{itemize}
+			\item funzioni di tipo transizione
+			\begin{itemize}
+				\item input esterno (dati provenienti dall'esterno elaborati all'interno dei confini dell'applicazione, es: un form)
+				\item output esterno (manda dati di controllo fuori dai confini dell'applicazione, richiede almeno una formula matematica, es:una stampa)
+				\item interrogazioni esterne (manda dati o informazioni fuori dai confini dell'applicazione, non richiede una formula matematica)
+			\end{itemize}
+		\end{itemize}
+		\item calcolo dei FP pesati, in funzione del fattore di aggiustamento(varia da 0.65 a 1.35, con incidenza max sul totale del 35\%)
+	\end{itemize}
+	fattore di influenza = $0.65 + (TDI \cdot 0.01)$ \\
+	Il $TDI$ è il total degree of influence e somma i gradi per diverse caratteristiche (es : riusabilità, comunicazione dati, prestazioni, facilità di installazione, complessità elaborativa, ecc.) ed assume valori fra 0 e 5.
+	\section{Il numero ciclomatico}
+	Mentre il calcolo dei FP è empirico, in questo contesto simo teorici e molto specifici, in particolare si quantifica la complessità del flusso di controllo (cicli, if, switch, ecc.). Il numero ciclomatico cattura solo in parte ciò che è la complessità del flusso di controllo.
+	Il numero ciclomatico viene calcolato su un grafo fortemente connesso (ogni nodo può raggiungere indirettamente qualsiasi altro nodo). In termini di conti, il suo valore è determinabile attraverso:
+	\begin{itemize}
+		\item $e - n + 1$ (se il grafo è già fortemente connesso)
+		\item $e - n + 2$ (se ho un grafo normale, lo posso trasformare in fortemente connesso collegando il nodo iniziale al nodo terminale)
+		\item $e - n + 2p$ (se il programma ha procedure al suo interno, il numero ciclomatico dell'intero grafo è dalla somma dei numeri ciclomatici dei singoli grafi indipendenti. p è il numero di grafi (procedure) indipendenti)
+	\end{itemize}
+	\section{Cocomo (COnstructive COst MOdel)}
+	Si calcola una stima iniziale dei costi di sviluppo in base alla dimensione del software da produrre, poi la si migliora sulla base di un insieme di parametri.
+	\subsection{Stima della dimensione del software}
+	Questa stima la si opera contando il numero di linee di codice scritte (KDSI), il conto lo si può fare sfruttando i FP, assegnati diversamente in funzione del linguaggio.
+	\subsection{Determinazione della classe del software}
+	Ci sono differenti classi software, determinate in funzione del tempo e personale richiesto, ogni classe presenta un calcolo diverso per la determinazione del costo.
+	\begin{itemize}
+		\item Organic $M_{nom} = 3.2 \cdot KDSI$
+		\item Semi-detatched $M_{nom} = 3 \cdot KDSI$
+		\item Embedded $M_{nom} = 2.8 \cdot KDSI$
+	\end{itemize}
+	\subsection{Applicazione degli estimatori di costo}
+	Gli estimatori di costo $c_i$ sono dei coefficienti che sono determinati in funzione di :
+	\begin{itemize}
+		\item Proprietà del prodotto (affidabilità, complessità, ecc.)
+		\item Caratteristiche hardware (efficienza, memoria, ecc.)
+		\item Caratteristiche del team (esperienza e capacità del team)
+		\item Caratteristiche del progetto (Modernità del processo di sviluppo, ecc.)
+	\end{itemize}
+	La formula esatta è la seguente:\\\\
+	$M = M_{nom} \cdot \prod_{i = 1}^{15}c_i$
 \end{document}
