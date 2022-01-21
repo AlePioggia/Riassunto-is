@@ -6,10 +6,12 @@
 \usepackage{lmodern}
 \usepackage{alltt, fancyvrb, url}
 \usepackage{float}
+\usepackage{geometry}
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{layout}
 
 % Questo commentalo se vuoi scrivere in inglese.
 \usepackage[italian]{babel}
@@ -36,6 +38,13 @@
 	pdfpagemode=FullScreen,
 }
 
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
 % ----------------------------- PREAMBLE END -----------------------------------
 
 \makeindex
@@ -43,8 +52,8 @@
 \title{\textbf{INGEGNERIA DEL SOFTWARE}}
 \author{Alessandro Pioggia}
 
+
 \begin{document}
-	
 	\makeatletter
 	\begin{titlepage}
 		\begin{center}
@@ -173,11 +182,11 @@
 	\begin{itemize}
 		\item fase di progettazione (serve a prevedere la manutenibilità e prevenire problemi)
 		\item fase di collaudo/test (eseguire un confronto con le specifiche)
-		\item fase dopo il rilascio in esercizio (serve a misurare l'impatto del software, in modo da assegnarli eventualmente un costo adeguato)
+		\item fase dopo il rilascio in esercizio (serve a misurare l'impatto del software, in modo da assegnargli eventualmente un costo adeguato)
 	\end{itemize}
 	\newpage
 	\subsection{Costi}
-	Prima di stimare i costi occorre effettuare una classificazione, dividendo le fonti di costo (costi per le attività generatrici) dai fattori di costo (hanno incidenza sul costo). \\ \\
+	Prima di stimare i costi occorre effettuare una classificazione, dividendo le fonti di costo (costi per le attività generatrici) dai fattori di costo (hanno incidenza sul costo).
 	\textbf{Fonti di costo}
 	\begin{itemize}
 		\item Costo delle risorse per lo sviluppo del sw (costo diretto)
@@ -241,12 +250,12 @@
 	fattore di influenza = $0.65 + (TDI \cdot 0.01)$ \\
 	Il $TDI$ è il total degree of influence e somma i gradi per diverse caratteristiche (es : riusabilità, comunicazione dati, prestazioni, facilità di installazione, complessità elaborativa, ecc.) ed assume valori fra 0 e 5.
 	\section{Il numero ciclomatico}
-	Mentre il calcolo dei FP è empirico, in questo contesto simo teorici e molto specifici, in particolare si quantifica la complessità del flusso di controllo (cicli, if, switch, ecc.). Il numero ciclomatico cattura solo in parte ciò che è la complessità del flusso di controllo.
+	Mentre il calcolo dei FP è empirico, in questo contesto siamo teorici e molto specifici, in particolare si quantifica la complessità del flusso di controllo (cicli, if, switch, ecc.). Il numero ciclomatico cattura solo in parte ciò che è la complessità del flusso di controllo.
 	Il numero ciclomatico viene calcolato su un grafo fortemente connesso (ogni nodo può raggiungere indirettamente qualsiasi altro nodo). In termini di conti, il suo valore è determinabile attraverso:
 	\begin{itemize}
 		\item $e - n + 1$ (se il grafo è già fortemente connesso)
 		\item $e - n + 2$ (se ho un grafo normale, lo posso trasformare in fortemente connesso collegando il nodo iniziale al nodo terminale)
-		\item $e - n + 2p$ (se il programma ha procedure al suo interno, il numero ciclomatico dell'intero grafo è dalla somma dei numeri ciclomatici dei singoli grafi indipendenti. p è il numero di grafi (procedure) indipendenti)
+		\item $e - n + 2p$ (se il programma ha procedure al suo interno, il numero ciclomatico dell'intero grafo è dato dalla somma dei numeri ciclomatici dei singoli grafi indipendenti. p è il numero di grafi (procedure) indipendenti)
 	\end{itemize}
 	\section{Cocomo (COnstructive COst MOdel)}
 	Si calcola una stima iniziale dei costi di sviluppo in base alla dimensione del software da produrre, poi la si migliora sulla base di un insieme di parametri.
@@ -269,4 +278,147 @@
 	\end{itemize}
 	La formula esatta è la seguente:\\\\
 	$M = M_{nom} \cdot \prod_{i = 1}^{15}c_i$
+	\section{Produzione}
+	Il processo di produzione è la sequenza di operazioni che viene seguita per costruire, consegnare e modificare un prodotto.
+	\subsection{Modelli di processo prescrittivi}
+	Si pongono come obiettivo quello di organizzare e dare una struttura a ciò che altrimenti risulterebbe caotico. Tutti i modelli prescrittivi prevedono una serie di attività da seguire, ovvero: 
+	\begin{itemize}
+		\item comunicazione (raccolta requisiti)
+		\item pianificazione (stima)
+		\item modellazione (analisi e progettazione)
+		\item costruzione (programmazione e testing)
+		\item deployment (consegna, supporto e feedback)
+	\end{itemize}
+	\subsection{Modello a cascata}
+	Il modello a cascata è \textbf{rigido}, poco flessibile, non prevede il concetto di "torno indietro" (impossibile modificare i risultati delle fasi precedenti). Il vantaggio è che alla fine del processo porta ad un prodotto funzionante. Questo modello è consigliato nel caso in cui le specifiche siano note a priori, per ovvi motivi.
+	\subsection{Modello incrementale}
+	 Il modello incrementale consiste nella creazione di un software funzionalità per funzionalità, fino a terminarlo. Si suddivide in più stadi operativi, al primo stadio viene generato un prodotto base, dopodichè, in seguito ad una valutazione utente si imposta uno stadio successivo, il quale aggiunge ulteriori funzionalità, rendendolo un prodotto più complesso. Questo modello è consigliato se i requisiti sono noti a priori ma le dimensioni finali del software non sono chiare.
+	 \subsection{Modello RAD}
+	 Il modello RAD è incrementale e punta ad uno sviluppo in breve termine, permesso grazie alla modularizzazione in componenti (ogni team si occupa di una componente). Una applicazione è adatta al RAD se è possibile sviluppare in 3 mesi max tutte le funzionalità base, rendendola già funzionante. Non è adatto se gli utenti non sono attivi e disponibili alla comunicazione, nemmeno se sono richieste alte prestazioni da ottenere tramite l'ottimizzazione delle interfacce tra i componenti.
+	 \subsection{Modello evolutivo}
+	 Il modello evolutivo prevede la creazione di una prima versione sw, sulla base delle specifiche note a priori, dopodichè si realizzano delle estensioni. Le estensioni possono essere create attraverso un modello a prototipi ( incremento progressivo di un prototipo ) o a spirale (fa crescere incrementalmente il grado di definizione del sistema). Questo modello è consigliato nel caso in cui i requisiti non sono chiarissimi e cambiano col tempo, sono modelli iterativi.
+	 \subsection{Model driven development}
+	 MDD ha come idea quella di automatizzare il processo di sviluppo, infatti prevede, in seguito alla fase di analisi e progettazione, l'utilizzo di tool per la generazione automatica di codice.
+	 \subsection{Modelli agile}
+	 I modelli agile, a differenza di quelli visti fino ad ora non sono prescrittivi, la loro filosofia si racchiude nei seguenti punti:
+	 \begin{itemize}
+	 	\item cliente al 1° posto
+	 	\item team di sviluppo molto motivato
+	 	\item abbattimento formalismi (poca ingegneria del software)
+	 	\item semplicità di sviluppo
+	 \end{itemize}
+	Il prerequisito è la continua comunicazione con l'utente, se manca, non ha senso adottare un modello agile.
+	\subsection{Extreme programming}
+	Modello agile più diffuso, include 4 attività procedurali:
+	\begin{itemize}
+		\item Pianificazione
+		\begin{itemize}
+			\item Definizione di user story, ovvero micro-funzionalità del sistema viste dal punto di vista dell'utente, devono essere sviluppabili in non più di 3 settimane. Se la funzionalità proposta dall'utente è troppo grande, si richiede di frammentarla, per rientrare nelle 3 settimane
+		\end{itemize}
+		\item Design
+		\begin{itemize}
+			\item Persegue la massima semplicità, incoraggia l'uso di CRC e il refactoring, in caso di problema di design si creano spike solution, prototipi usa e getta con 1 funzionalità.
+		\end{itemize}
+	\item Programmazione
+	\begin{itemize}
+		\item pair programming, due sviluppatori per ogni postazione, 4 occhi sono meglio di 2.
+	\end{itemize}
+	\item Testing
+	\begin{itemize}
+		\item Unit test e test di regressione (ogni volta che aggiungo una nuova funzionalità testo anche le precedenti, in modo da evitare il butterfly effect).
+	\end{itemize}
+	\end{itemize}
+	\subsection{Test Driven Developement}
+	Tecnica di sviluppo che consiste nel definire i test automatici ancora prima di programmare. Questo approccio diminuisce i tempi totali di sviluppo, grazie alla possibilità di trovare errori in maniera immediata, inoltre il TDD comporta una struttura del codice modulare, flessibile e modificabile. Concetto cardine : mock objects, pseudo-oggetti che si comportano come oggetti reali ma che ne riproducono solo i risultati, per facilitare la fase di test.
+	\section{Prototipazione}
+	Un prototipo software permette di animare e dimostrare i requisiti, l'uso principale consiste nell'aiutare i clienti e gli sviluppatori a capire i requisiti del sistema.
+	\subsection{Tecniche di prototipazione}
+	\begin{itemize}
+		\item prototipazione evolutiva
+		\begin{itemize}
+			\item L'obiettivo è di fornire un sistema funzionante all'utente, parte come uno sketch, che ad ogni iterazione migliora, fino ad arrivare al prodotto finito.
+			\item Problemi: è presupposto un modello a cascata, inoltre cambi continui corromperanno il sistema sul lungo termine e sono richieste capacità di progettazione e programmazione non indifferenti.
+		\end{itemize}
+		\item prototipazione usa e getta
+		\begin{itemize}
+			\item Serve per validare i requisiti del sistema, non è pensato per essere un punto di partenza. Si fa sui requisiti non capiti, sapendo che poi, alla fine, il prototipo verrà buttato. Deve essere usato per sistemi in cui le specifiche non possono essere sviluppate in anticipo, es: interfacce grafiche.
+		\end{itemize}
+	\end{itemize}
+	\section{Verifica del software}
+	La fase di verifica del software ha lo scopo di controllare se il sistema realizzato risponde alle specifiche di progetto. Nel caso delle tecniche dinamiche il sw viene messo in esecuzione, mentre in quelle statiche no.
+	\subsection{Testing}
+	Non c’è modo di dimostrare formalmente la correttezza del software, dal momento che, dato un sw ho un numero infinito di possibili combinazioni di output. Per testare occorre trovare un numero di operazioni(non troppe, per non far sparare in alto il prezzo) da eseguire, vanno scelte correttamente, per gestire il maggior numero di casi possibili.
+	\subsubsection{Testing in the small}
+	Si tratta di tecniche di testing white-box, dunque per fare il test devo sapere come è fatto dentro l’algoritmo.  Torna utile schematizzare il processo con un grafo di controllo. L’idea è di dare dei criteri di copertura che sono progressivamente più ampi, lo scopo è di far eseguire ogni operazione almeno una volta. 
+	\paragraph{Statement-test(Criterio di copertura dei programmi)}
+	il senso è : “se ho una istruzione in un codice che non viene mai raggiunta, non posso capire se funziona o meno, quindi un caso prova può essere quello che mette in esecuzione qualsiasi istruzione almeno una volta, indipendentemente dai controlli che faccio”. Il criterio degli statement non permette di trovare tutti i bug.
+	\paragraph{Branch-test (Criterio di copertura delle decisioni)}
+	il branch test fa in modo che ogni arco del grafo di controllo venga attraversato almeno una volta (di conseguenza viene rispettato anche il criterio dello statement-test). Anche il branch-test non ci aiuta più di tanto, il problema nasce da una condizione composta, prendiamo un ramo o l’altro del grafo di controllo, non ci siamo posti il problema di porre una volta vera una condizione dell’if e una volta l’altra(else).
+	\paragraph{Criterio di copertura delle decisioni e delle condizioni} 
+	 considera sia il true che il false di ogni predicato, risolvendo il problema nato nel secondo criterio. Anche in questo caso non ci dà garanzia di trovare l’errore.
+	 Quando dico quali criteri ho usato posso dare una garanzia riguardo quanto sono andato profondo con il testing del programma.
+	\subsubsection{Testing in the large}
+	Il numero elevato di possibili combinazioni delle porzioni di codice di un sistema di grandi dimensioni rende impossibile l'utilizzo di tecniche white-box. Si rende necessario l'utilizzo di tecniche black-box, in cui il sistema è considerato una scatola nera, nel quale si valuta il funzionamento sulla base della corrispondenza input-output.
+	Devo selezionare i casi prova significativi nei casi di funzionamento normale. Lo schema uml che si può usare nel testing in the large è il diagramma dei casi d’uso, se un caso d’uso non lo testo non posso avere la garanzia del corretto funzionamento. I test possono essere fatti su livelli diversi : 
+	\begin{itemize}
+		\item modulo (unit-test, verifica se un modulo si comporta correttamente in base al suo comportamento esterno)
+		\item integrazione (verifica il comportamento di sottoparti del sistema sulla base del comportamento esterno)
+		\item sistema (verifico il comportamento dell'interno sistema sulla base del  suo comportamento esterno)
+	\end{itemize}
+	Il beta-test è un test di sistema, dal momento che è fatto dall’utente, il quale non conosce la modularità del sistema.
+	\subsection{Analisi del software}
+	L’idea è di ispezionare il sistema e metterlo mentalmente in esecuzione per capire se ci sono errori o no. Ci sono due sottofamiglie.
+	\paragraph{Code walk-through} Senza avere in mente nessuna tipologia di errore, viene messo in funzionamento (nella mente) il programma, cercando l’errore.
+	
+	\paragraph{Code inspection} Si cerca invece un errore specifico, sono dunque alla ricerca di una particolare classe d’errore(Uso di variabili non inizializzate, loop infiniti). Fra le tecniche di code inspection c’è l’analisi di flusso di dati. Lo scopo è di analizzare staticamente qualcosa che dovrebbe essere dinamico, ovvero l’insieme di istruzioni di un programma, ad ogni comando associo il tipo di operazione eseguito sulle variabili (definizione = d, uso = u, annullamento = a). L’analisi è focalizzata sul controllo di una variabile alla volta. Le regole dell'analisi di flusso di dati sono 2:
+	\begin{itemize}
+		\item L'uso di una variabile x deve essere sempre essere preceduto in ogni
+		sequenza da una definizione della stessa variabile x, senza annullamenti
+		intermedi
+		\item Una definizione di una variabile x deve sempre essere seguita da un uso
+		della variabile x, prima di un'altra definizione o di un annullamento della
+		stessa variabile x 
+	\end{itemize}
+	\section{Certificazione}
+	La certificazione consiste nel dare al cliente una assicurazione della correttezza del prodotto consegnato, viene rilasciata da terzi. L’ue considera regole tecniche e norme tecniche consensuali, le prime sono obbligatorie mentre le seconde sono solo consigliate. 
+	\subsection{Normativa ISO 9000}
+	La normativa ISO 9000 è una norma tecnica consensuale, essa incoraggia le sw house a seguire delle direttive che, a detta loro, siano in grado di garantire una maggiore qualità del software. Oltretutto dà delle garanzie all’utente, che sa che un software certificato ha un livello di qualità non banale.
+	Il processo che porta alla assegnazione della certificazione al sw prende il nome di accreditamento. La certificazione può essere rilasciata anche su sotto-porzioni dell'azienda oggetto di valutazione, sarà compito degli ispettori definire i confini.
+	
+	\paragraph{Manuale di qualità} comprende di tutti i processi su cui è applicato il sistema qualità.
+	\paragraph{Visita ispettiva} la visita ispettiva è la fase cardine della certificazione, gli ispettori visitano i reparti e intervistano i diretti interessati, in seguito viene deciso se rilasciare o meno il certificato. In seguito al rilascio, gli ispettori eseguono sporadicamente delle visite di sorveglianza (4 volte all'anno max).
+	\paragraph{Non conformità}
+	Le non conformità del progetto sono di diverso tipo, ovvero : non conformità rispetto ai requisiti della norma, non conformità sulla documentazione, non conformità sulla attuazione delle procedure (la politica per la qualità non risulta compresa e attuata appieno)
+	\subsection{Documenti del progetto}
+	Un prodotto software per poter essere mantenuto e per poter evolvere deve essere descritto mediante documenti tecnici : specifiche, manuali, programmi software, registrazione dei risultati. Nel manuale mostro come gestisco tutta la documentazione, ovvero:
+	\begin{itemize}
+		\item piano qualità
+		\begin{itemize}
+			\item Gestisce la qualità del progetto, dunque deve descrivere : il livello di qualità desiderato, le metriche utilizzate per le verifiche e le tecniche e analisi di verifica. Il piano di qualità dovrebbe essere concordato, verificato e approvato da tutte le parti interessate e coinvolte nel progetto.
+		\end{itemize}
+		\item piano del progetto
+		\begin{itemize}
+			\item serve per definire il processo e la metodologia per trasformare la specifica dei requisiti del committente in un prodotto software. Va verificato prima dell'inizio del progetto (es: gantt)
+		\end{itemize}
+		\item piano gestione configurazione
+		\begin{itemize}
+			\item serve per determinare la gestione delle release del progetto, deve permettere di determinare le modifiche intervenute e gli effetti sui restanti documenti del progetto.
+		\end{itemize}
+		\item documenti tecnici
+	\end{itemize}
+	\subsection{Manutenzione}
+	Si entra nella fase di manutenzione solo una volta che il sw è stato messo in produzione, può essere di 3/4 tipi (2 di questi tipi spesso vengono considerati insieme). 
+	\subsubsection{Manutenzione correttiva}
+	Errori(fatti dall’uomo) $\rightarrow$ difetto $\rightarrow$ malfunzionamento globale. \\\\
+	Ha costi altissimi, soprattutto quando non si capisce il problema alla radice e si sistema con una patch ed interessa tutte le fasi del ciclo di sviluppo. La manutenzione sporca la struttura del programma e comporta un calo della qualità del sw, anche dal punto di vista della pulizia del codice. Il peso della manutenzione correttiva varia in funzione del sw.
+	\subsubsection{Manutenzione adattiva}
+	La manutenzione adattiva consiste nelle modifiche spesso dovute a delle variazioni dell'ambiente circostante, tutto ciò che non è errore va nella manutenzione adattativa (es: ricalcolo tasse e imposta, aggiornamenti listini e tariffari). Porta ad un ripristino della qualità.
+	\subsubsection{Manutenzione perfettiva}
+	Ho già una funzionalità e la estendo, introduco dei nuovi design patterns (modificando l’architettura). Il refactoring non fa parte di questa categoria perché fa parte del ciclo di sviluppo, è trasparente all’utente. Porta ad un aumento del valore informativo del sistema, oltre all'utilizzabilità ed ahimè complessità.
+	\subsubsection{Manutenzione evolutiva}
+	Migliora qualitativamente e quantitativamente le caratteristiche del sistema, porta a dei costi molto alti.
+	L’architettura originale di un sistema lo rende o meno manutenibile, 
+	i programmi spesso sono costruiti come case, però si cerca di mantenerli come se fossero automobili(smontabili).
+	
+
 \end{document}
