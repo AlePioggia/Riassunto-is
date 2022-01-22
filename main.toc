@@ -73,3 +73,10 @@
 \contentsline {subsubsection}{Manutenzione adattiva}{17}{section*.13}%
 \contentsline {subsubsection}{Manutenzione perfettiva}{18}{section*.14}%
 \contentsline {subsubsection}{Manutenzione evolutiva}{18}{section*.15}%
+\contentsline {chapter}{\numberline {5}Interfacce grafiche}{19}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Tipologie di interfacce}{19}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Interfacce code-based}{19}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Interfacce 3270}{19}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Pseudo-gui}{20}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Standard gui}{20}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}Special gui}{20}{subsection.5.1.5}%
