@@ -459,6 +459,90 @@
 		\item vantaggi  $\rightarrow$ massima facilità di apprendimento, buona qualità, soddisfazione ottima.
 		\item svantaggi $\rightarrow$ mole di lavoro da svolgere non indifferente, pessimo riutilizzo della conoscenza.
 	\end{itemize}
-	
-		
+	\section{Strutturazione della interfaccia}
+	Le strutture più verticali tendono a dare poche scelte ad ogni step (più intuitive), però creo dei percorsi più lunghi(quindi più click). Le strutture più basse hanno un numero elevato di scelte ma richiedono meno step (più semplici). 
+	Ci sono 3 tipi di strutture a finestre:
+	\begin{itemize}
+		\item modello multi-window 
+		\begin{itemize}
+			\item ha molte finestre principali ognuna con un proprio menù, ogni finistra principale ha anche delle children windows, che sono senza menù. C'è una estrema flessibilità ma la navigazione risulta complessa.
+		\end{itemize}
+		\item modello multi-document
+		\begin{itemize}
+			\item Composta da una sola top window (sempre aperta) che contiene una serie di document windows.  Ha poca flessibilità, però è semplice da capire, ottima per utenti inesperti
+		\end{itemize}
+		\item modello multi-paned
+		\begin{itemize}
+			\item Ho una unica finestra, essa è divisa in pannelli (pane) ridimensionabili ma con posizione fissa. Flessibilità $\rightarrow$ poca, comprensibilità $\rightarrow$ alta.
+		\end{itemize}
+	\end{itemize}
+	\section{Project standards}
+	Consiste nella definizione di standard per la scelta di : terminologia, metafore/icone e caratteristiche delle finestre. L'obiettivo prioritario è di facilitare l'utilizzo all'utente finale.
+	\section{Comunicazione visiva nelle GUI}
+	\begin{itemize}
+		\item Affordance
+		\begin{itemize}
+			\item Consiste nel mostrare che un oggetto è manipolabile, questo effetto lo si ottiene attraverso tridimensionalità, ombreggiatura e puntamento.
+		\end{itemize}
+		\item Metafore
+		\begin{itemize}
+			\item Parole, frasi o figure che hanno una analogia con il mondo reale.
+		\end{itemize}
+		\item Layout
+		\begin{itemize}
+			\item Consiste nel posizionamento degli elementi all'interno della pagina, è uno strumento di comunicazione. La distanza fra elementi deve essere collegata al loro grado di associazione.
+		\end{itemize}
+		\item Colori
+		\begin{itemize}
+			\item Possono essere sfruttati per focalizzare l'utente o come associazione (ogni stato ha un suo standard, es: in italia rosso : pericolo, verde : via libera). Se il colore è usato come associazione bisogna evitare di utilizzare più di 5 varianti, altrimenti si crea confusione.
+		\end{itemize}
+		\item Icone (disegni piccoli e metaforici)
+		\begin{itemize}
+			\item Desktop icon : per applicazioni collegate per l'utente, icone simili graficamente.
+			\item Menu icon : sempre visibili accanto ai menù, è un invito alla sperimentazione.
+			\item Button icon : In aggiunta all'icona c'è il testo, che rafforza la funzione del bottone.
+		\end{itemize}
+		\item Font
+		\begin{itemize}
+			\item La leggibilità è determinata dal tipo di carattere (es: per singola linea usare Sans serif, mentre per testi articolati su molte righe meglio il Serif).
+		\end{itemize}
+	\end{itemize}
+	\newpage
+	\section{I 6 criteri di usabilità}
+	Rappresenta l'efficacia (in che misura i compiti previsti dal funzionamento vengono eseguiti), l'efficienza (risorse da impiegare) e soddisfazione dell'utente.
+	\begin{itemize}
+		\item apprendibilità (quanto in profondo gli utenti imparano?)
+		\item velocità (in quanto tempo un utente porta a termine n task?)
+		\item soddisfazione (in quanti mi hanno lasciato una recensione positiva?)
+		\item facilità di navigazione (quanta libertà ha l'utente in merito alla presa di decisioni riguardanti attività da svolgere?)
+		\item memorabilità (quanto bene riesce ad utilizzare l'interfaccia un utente inattivo da 6 mesi?)
+		\item prevenzione degli errori (quanti errori catastrofici si verificano in date condizioni? è possibile prevederli?)
+	\end{itemize}
+	\section{Metodologia di progetto}
+	\begin{itemize}
+		\item Prima del termine dello studio di fattibilità
+		\begin{itemize}
+			\item definire le attività legate alla realizzazione dell’interfaccia
+			\item definire i parametri di riferimento ed i criteri di usabilità
+			\item pianificare le attività di valutazione dell’usabilità
+			\item realizzare il modello concettuale dell’interfaccia
+		\end{itemize}
+		\item Precocemente nella fase di analisi e progettazione
+		\begin{itemize}
+			\item Definire e realizzare le strutture base (dialogo, look e feel)
+			\item Stabilire gli standard di progetto per l’interfaccia
+			\item Prototipare le parti ritenute critiche
+			\item Verificare l’allineamento con modello concettuale e standard
+		\end{itemize}
+		\item Nella fase di sviluppo
+		\begin{itemize}
+			\item Ultimare l’interfaccia in dettaglio legandola alla logica applicativa
+		\end{itemize}
+	\end{itemize}
+	\section{Test con l'utente}
+	\begin{itemize}
+		\item Simulatore (l'utente è passivo)
+		\item Dimostratore (l'utente agisce sulle parti critiche)
+		\item Prototipo (l'utente agisce sull'intero sistema in beta-release)
+	\end{itemize}
 \end{document}
