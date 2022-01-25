@@ -545,4 +545,47 @@
 		\item Dimostratore (l'utente agisce sulle parti critiche)
 		\item Prototipo (l'utente agisce sull'intero sistema in beta-release)
 	\end{itemize}
+	\chapter{UML}
+	Uml definisce una notazione standard, basata su un metamodello integrato degli oggetti che compongono un sistema software.
+	\section{Proprietà prinicipali}
+	\subsection{Diagramma vs Modello}
+	Un modello contiene informazioni riguardanti il sistema che stiamo osservando, il diagramma è un modo per visualizzare elementi del modello.
+	\subsection{La struttura di UML}
+	La struttura di UML è composta da costituenti fondamentali (elementi di base), meccanismi comuni (tecniche comuni per arrivare ad un obiettivo) e architettura (esprime l'architettura del sistema)
+	\begin{itemize}
+		\item costituenti fondamentali : entità, relazioni e diagrammi.
+		\item meccanismi comuni : specifiche, ornamenti, distinzioni comuni e meccanismi di estendibilità.
+		\item architettura : struttura software.
+	\end{itemize}
+	\subsection{Alcune definizioni}
+	\paragraph{Specifiche} Sono la descrizione testuale della semantica di un elemento.
+	\paragraph{Ornamenti} Rendono visibili gli aspetti particolari della specifica di un elemento (ad esempio la sottolineatura)
+	\paragraph{Distinzioni comuni} Classificatore/istanza $\rightarrow$ separa la nozione astratta di un'entità dalle sue concrete istanza (es : distinzione oggetto classe) \\
+	Interfaccia/implementazione $\rightarrow$ separa cosa un oggetto fa da come lo fa.
+	\newpage
+	\subsection{Meccanismi di estendibilità di UML}
+	\begin{itemize}
+		\item stereotipo : consiste nell'introduzione di nuovi elementi di modellazione a partire da quelli esistenti.
+		\item proprietà : valore associato ad un elemento del modello espresso da una stringa associata all'elemento.
+		\item profilo : insieme di sterotipi.
+	\end{itemize}
+	
+	\subsection{Architettura}
+	\begin{itemize}
+		\item Vista dei casi d'uso : Descrive le funzionalità del sistema come vengono percepite dagli utenti, analisti ed esecutori del testing.
+		\item Vista logica : Stabilisce la terminologia del dominio del problema sotto forma di classi ed oggetti.
+		\item Vista dei processi : Variante orientata ai processi della vista logica, modella i thread e i processi sotto forma di classe attive.
+		\item Vista di implementazione : Descrive i moduli implementativi e le loro dipendenze, illustrandone la configurazione così da definire il concetto di versione del sistema
+		\item Vista di deployment : Mostra la distribuzione fisica del sistema software sull'architettura hardware
+		\item
+	\end{itemize}
+	\section{Diagrammi di sequenza}
+	I diagrammi di sequenza sono dei particolari diagrammi di interazione ( descrivono in quale modo istanze di classi interagiscono fra loro, scambiando messaggi durante l'ipotetico funzionamento del software ), in cui viene enfatizzata la sequenza temporale dei messaggi.
+	\subsection{Definizioni}
+	\paragraph{Contesto} Può essere dato dall'intero sistema, da una sottoparte o da un caso d'uso ad esempio.
+	\paragraph{Linea di vita} Una linea di vita rappresenta come un'istanza di un classificatore partecipa all'interazione
+	\paragraph{Messaggio} Tipo di comunicazione istantanea tra due linee di vita di un'interazione, trasporta informazione. I tipi di messaggio sono : di chiamata, di creazione, di distruzione e di invio di segnali. Inoltre possono essere sincroni, asincroni, di ritorno, di creazione di un oggetto e di distruzione di un oggetto.
+	\paragraph{Interazione} Una interazione rappresenta l'insieme dei messaggi scambiati fra linee di via all'inteno del contesto, per ottenere un obiettivo
+	\subsection{In conclusione}
+	I diagrammi di sequenza mostrano le interazioni fra linee di vita come una sequenza di messaggi ordinati temporalmente. Hanno due dimensioni, quella verticale rappresenta il tempo, quella orizzontale rappresenta le linee di vita. Un'attivazione mostra il periodo durante il quale una linea di vita esegue  un' azione o direttamente o attraverso una procedura subordinata, rappresenta sia la durata dell'azione nel tempo sia la relazione di controllo tra l'attivazione e i suoi chiamanti.
 \end{document}
