@@ -579,8 +579,32 @@
 		\item Vista di deployment : Mostra la distribuzione fisica del sistema software sull'architettura hardware
 		\item
 	\end{itemize}
+	\section{Diagrammi dei casi d'uso}
+	Descrivono l'interazione fra attori e sistema, non la logica interna della funzione nè la struttura del sistema. Gli attori rappresentano i ruoli di utilizzo del sistema e possono essere : umani, organizzazioni o altre applicazioni/sistemi.
+	\subsection{Attore vs caso d'uso}
+	Un attore è sempre esterno al sistema, spedisce o riceve messaggi, esegue i casi d'uso ed è modellato da una classe, non un oggetto.
+	Un caso d'uso è la specifica di una sequenza di azioni che un sistema può eseguire con una classe, non un oggetto. Esso rappresenta una funzionalità come percepita da un attore, produce un risultato osservabile, viene solo ed esclusivamente attivato da un attore ed è completo.
+	\subsection{Ruolo dei casi d'uso}
+	Nelle fasi iniziali serve per chiarire cosa farà il sistema, è una ottima forma di comunicazione. I casi d'uso inoltre guidano l'intero progetto di sviluppo e rappresentano delle unità di rilascio, per progetti che seguono un approccio incrementale alla pianificazione della realizzazione e dei rilasci. \\
+	Ogni specifica esecuzione di un caso d'uso è detta scenario, esistono scenari di successo e di fallimento.\\
+	IMPORTANTE : le precondizioni non vanno modellate!
+	\section{Diagrammi dei package}
+	Un package è un raggruppamento di elementi del modello semanticamente uguali, si possono rappresentare relazioni di contenimento (i package annidati vedono lo spazio dei nomi dei package che li contengono, il contrario non è vero)
+	\subsection{Dipendenze}
+	Esistono 4 tipi di dipendenze:
+	\begin{itemize}
+		\item use : default, un package usa il documento di un'altro package
+		\item import : gli elementi pubblici del package fornitore vengono passati al package fornitore
+		\item access : stessa cosa di import, però con package privati
+		\item trace : raffinamento
+	\end{itemize}
+	Oltre alle dipendenze esiste il concetto di generalizzazione, quando il package specifico si deve conformare all'interfaccia generale.
+	\subsection{Good practices}
+	La fonte migliore per individuare dei package d'analisi è il diagramma delle classi (anche casi d'uso). Si raggruppano nello stesso package : classi appartenenti a stessa gerarchia di composizione o di specializzazione. 
+	
 	\section{Diagrammi di sequenza}
 	I diagrammi di sequenza sono dei particolari diagrammi di interazione ( descrivono in quale modo istanze di classi interagiscono fra loro, scambiando messaggi durante l'ipotetico funzionamento del software ), in cui viene enfatizzata la sequenza temporale dei messaggi.
+	I diagrammi di interazione sono : diagrammi di sequenza (enfatizza la sequenza temporale degli scambi di messaggi), di comunicazione (enfatizza le relazioni strutturali fra gli oggetti che interagiscono), di sintesi dell'interazione (illustra come un comportamento complesso viene realizzato da un insieme di interazioni più semplici) e di temporizzazione (enfatizza gli aspetti real-time di una interazione).
 	\subsection{Definizioni}
 	\paragraph{Contesto} Può essere dato dall'intero sistema, da una sottoparte o da un caso d'uso ad esempio.
 	\paragraph{Linea di vita} Una linea di vita rappresenta come un'istanza di un classificatore partecipa all'interazione
@@ -588,4 +612,104 @@
 	\paragraph{Interazione} Una interazione rappresenta l'insieme dei messaggi scambiati fra linee di via all'inteno del contesto, per ottenere un obiettivo
 	\subsection{In conclusione}
 	I diagrammi di sequenza mostrano le interazioni fra linee di vita come una sequenza di messaggi ordinati temporalmente. Hanno due dimensioni, quella verticale rappresenta il tempo, quella orizzontale rappresenta le linee di vita. Un'attivazione mostra il periodo durante il quale una linea di vita esegue  un' azione o direttamente o attraverso una procedura subordinata, rappresenta sia la durata dell'azione nel tempo sia la relazione di controllo tra l'attivazione e i suoi chiamanti.
+	\section{Diagrammi di stato}
+	I diagrammi di stato descrivono in modo esaustivo l'evoluzione temporale delle  istanze di un classificatore (classe, caso d'uso, ecc.) in risposta alle iterazioni con altri oggetti.
+	\subsection{Componenti}
+	\begin{itemize}
+		\item stato : valore assunto dagli attributi in un istante di tempo t.
+		\item evento : permette la transizione da uno stato all'altro, la transizione può avere delle condizioni (evento[condizione] / azione). Una transizione che esce da uno stato e non riporta alcun evento indica che la transizione avviene al termine dell'attività.
+		\item azioni e attività : un singolo stato può contenerle entrambe
+		\begin{itemize}
+			\item le azioni sono operazioni istantanee, non interrompibili.
+			\item le attività non sono atomiche, richiedono del tempo prima che arrivino a termine.
+		\end{itemize}
+	\end{itemize}
+	\subsection{Tipi di evento}
+	\begin{itemize}
+		\item di variazione: si verifica quando una condizione diventa vera.
+		\item di segnale : si verifica nel momento in cui un oggetto riceve un oggetto segnale da un altro oggetto.
+		\item di chiamata : invocazione di una operazione.
+		\item temporale : si verifica allo scadere di un evento di tempo (when(date) or after(time))
+	\end{itemize}
+	\subsection{Stati compositi}
+	Lo stato composito è uno stato che contiene altri stati annidati, organizzati in uno o più automi. Ogni stato annidato eredita tutte le transizioni dello stato che contiene.
+	\section{Diagramma delle attività}
+	Il diagramma delle attività modella un processo come un'attività costituita da un insieme di nodi connessi da archi. I diagrammi di attività possono anche essere usati per modellare efficacemente processi di business e workflow.
+	\subsection{Attività}
+	Le attività sono modellate come reti di nodi connessi da archi. 
+	\begin{itemize}
+		\item nodi
+		\begin{itemize}
+			\item azione : rappresentano i compiti atomici all'interno dell'attività (per intenderci, sono quelli standard).
+			\item controllo : controllano il flusso, sono il rombo, il pallino nero e l'occhio di bue.
+			\begin{itemize}
+				\item nodo iniziale(pallino nero) : indica l'inizio del flusso
+				\item nodo finale dell'attività(occhio di bue) : termina una attività
+				\item nodo finale del flusso(pallino con x al centro) : termina uno specifico flusso
+				\item nodo decisione : divide il flusso in più flussi alternativi
+				\item nodo fusione : ricongiunge i flussi in seguito ad una decisione.
+				\item nodo biforcazione : divide un flusso in due concorrenti.
+				\item nodo ricongiunzione : sincronizza i flussi concorrenti.
+			\end{itemize}
+			\item oggetto : rappresentano oggetti usati nell'attività
+		\end{itemize}
+		\item archi
+		\begin{itemize}
+			\item flussi di controllo : quelli standard
+			\item flussi di oggetti : che rappresentano il flusso di oggetti attraverso le attività.
+		\end{itemize}
+	\end{itemize}
+	\subsection{Corsie}
+	Le attività possono essere partizionate in corsie che raggruppano insiemi di azioni correlate.
+	Le corsie possono corrispondere a casi d'uso, classi, componenti, unità organizzative e ruoli.
+	\section{Diagramma dei componenti}
+	Un componente è una parte modulare di un sistema che incapsula i suoi contenuti (black box). I componenti possono avere attributi ed operazioni, inoltre possono partecipare ad associazioni e generalizzazioni. I componenti possono contenere oggetti (ad indicare che essi ne sono parte integrante) e sono connessi tra loro mediante dipendenze, possibilmente tramite interfacce, ad indicare che un componente usa i servizi di un altro componente.
+	\section{Diagramma di deployment}
+	Specifica l'hardware su cui verrà eseguito il software e il modo in cui il software è dislocato sull'hardware.
+	Può essere di due tipi:
+	\begin{itemize}
+		\item descrittore : contiene relazioni fra nodi e manufatti, modella tipi di architetture. (Tipo classe)
+		\item istanza : che contiene istanze di nodi, di relazioni tra nodi e manufatti; modella un deployment dell'architettura su un particolare sito. (Tipo istanza, architettura specifica)
+	\end{itemize}
+	\subsection{Nodi}
+	Un nodo è normalmente un qualcosa che ha un minimo di capacità computazionale. Abbiamo due stereotipi standard : device (periferica fisica) e executionEnvironment (tipo di ambiente software di esecuzione, per esempio un web server).
+	Un'associazione tra nodi rappresenta un canale di comunicazione tra essi.
+	\subsection{Manufatti}
+	Un manufatto rappresenta un'entità concreta del mondo reale, ad esempio : file sorgenti, eseguibili, documenti, database, uml. Vengono dislocati sui nodi.
+	\section{UP}
+	UP è un processo di sviluppo incentrato su: 
+	\begin{itemize}
+		\item casi d'uso
+		\item architettura software
+		\item iterativo ed incrementale
+		\item oo
+		\item configurazione
+	\end{itemize}
+	\subsection{Un modello di UP}
+	Occorre definire \textbf{chi}, \textbf{cosa} e \textbf{quando}.
+	\begin{itemize}
+		\item CHI: Una risorsa o un ruolo che definisce il comportamento e le responsabilità di un individuo o gruppo(es:analista). 
+		\item COSA: Il comportamento è espresso in termini di manufatti (documentazione) e attività (Design o analisi requisiti).
+		\item QUANDO: Modellazione dei flussi di lavoro.
+	\end{itemize}
+	\subsection{Flussi di lavoro}
+	\begin{itemize}
+		\item Requisiti
+		\item Analisi
+		\item Progettazione
+		\item Implementazione
+		\item Test
+		\item Deployment
+		\item Gestione configurazione: mantiene le versioni del sistema
+		\item Gestione progetto: descrive le strategie per gestire un processo iterativo
+		\item Ambiente: descrive le infrastrutture di sviluppo
+	\end{itemize}
+	\subsection{Fasi di lavoro}
+	Le fasi sono sequenziali e corrispondono a milestone significativi per committenti, utenti e management. Ogni fase può essere composta da una o più iterazioni; il numero esatto dipende dalle scelte del Project Manager e dai rischi del progetto.
+	\begin{itemize}
+		\item Avvio: fase preliminare, viene eseguita la pianificazione strategica ( stima fattibilità, stima dei costi, stima dei rischi). (Documenti fattibilità)
+		\item Elaboration: Analisi e progettazione, vengono definite le caratteristiche funzionali, strutturali e architetturali. (Specifica requisiti software e architettura consolidata e verificata)
+		\item Construction: sviluppo del prodotto in diverse iterazioni e testing. (versione sistema in pre-produzione (beta))
+		\item Transition: consegna del sistema al consumatore finale (include marketing, installazione, configurazione, formazione, supporto, mantenimento) (versione sistema in produzione)
+	\end{itemize}
 \end{document}
